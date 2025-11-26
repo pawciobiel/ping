@@ -49,7 +49,6 @@
 // it calls the OnFinish callback.
 //
 // For a full ping example, see "cmd/ping/ping.go".
-//
 package ping
 
 import (
@@ -538,7 +537,7 @@ func (p *Pinger) Statistics() *Statistics {
 		PacketsRecv:           p.PacketsRecv,
 		PacketsRecvDuplicates: p.PacketsRecvDuplicates,
 		PacketLoss:            loss,
-		Rtts:                  p.rtts,
+		Rtts:                  append([]time.Duration{}, p.rtts...),
 		Addr:                  p.addr,
 		IPAddr:                p.ipaddr,
 		MaxRtt:                p.maxRtt,
