@@ -3,8 +3,12 @@ before:
   hooks:
   - go mod download
 builds:
-- binary: ping
+- binary: goping
   dir: cmd/ping
+  # Security-hardened build flags
+  flags:
+    - -trimpath
+    - -buildmode=pie
   goarch:
   - amd64
   - arm
